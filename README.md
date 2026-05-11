@@ -2,7 +2,7 @@
 
 > An interactive analytics dashboard for monitoring FDA medical device recalls — recall volume, severity, operational cycle times, and manufacturer-level patterns — built on the public openFDA dataset.
 
-**🔗 [Live demo](https://devicewatch-nqjqwgvzorxhcwrdkwjtws.streamlit.app/)** · **[Source code](https://github.com/ankitajsyadav/device_watch)**
+**🔗 [Live demo](https://devicewatch-analysis.streamlit.app/)** · **[Source code](https://github.com/ankitajsyadav/device_watch)**
 
 ---
 
