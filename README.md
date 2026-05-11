@@ -2,9 +2,7 @@
 
 > An interactive analytics dashboard for monitoring FDA medical device recalls — recall volume, severity, operational cycle times, and manufacturer-level patterns — built on the public openFDA dataset.
 
-**🔗 [Live demo](https://YOUR-APP.streamlit.app)** · **[Source code](https://github.com/YOUR-USERNAME/devicewatch)**
-
-> _Replace the two links above with your deployed Streamlit URL and GitHub repo URL._
+**🔗 [Live demo]([https://YOUR-APP.streamlit.app](https://devicewatch-nqjqwgvzorxhcwrdkwjtws.streamlit.app/))** · **[Source code](https://github.com/ankitajsyadav/device_watch)**
 
 ---
 
@@ -162,20 +160,6 @@ devicewatch/
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-## Scaling considerations
-
-What's deliberately not built here, and how it would scale in a production environment:
-
-- **Orchestration.** `scripts/refresh_data.py` is a single idempotent function with a CLI. Wrapping it in an Airflow DAG (or Prefect, Dagster) is one config file — fetch → validate → archive previous snapshot → publish.
-- **Spark.** Pandas handles ~30k records trivially. If the dataset grew to tens of millions of rows, the cleansing in `data_loader.py` would migrate to PySpark; the SQL layer is portable as-is.
-- **Storage.** Local parquet works for this scale. In production, the same parquet would land in S3/GCS, and DuckDB can read it via `read_parquet('s3://...')` — or the SQL could be repointed at a warehouse with zero schema changes.
-- **Data quality tooling.** The custom validation module covers the basics with clear category grouping. Great Expectations or Soda Core would give versioned suites, data docs, and alerting if this needed to graduate to a production data product.
-- **Lineage & catalog.** A handful of versioned `.sql` files is sufficient at this scale. dbt would be the next step if the KPI count grew — with `.yml` files for column-level lineage and assertion-style tests.
-
----
 
 ## Data source
 
